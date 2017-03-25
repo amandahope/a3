@@ -19,13 +19,13 @@
         </div>
 
         <div class="row">
-            Letters go here!
+            @yield('letters')
         </div>
 
         <div class="row">
             <div class="checkbox form-group col-xs-12">
                 <label for="bingo">
-                    <input type="checkbox" name="bingo" value="bingo" id="bingo" <?php if($bingo) echo "CHECKED"?> />This word used all seven tiles.
+                    <input type="checkbox" name="bingo" value="bingo" id="bingo" />This word used all seven tiles.
                 </label>
             </div>
         </div>

@@ -10,6 +10,6 @@ class ScrabbleController extends Controller
     * GET /books
     */
     public function index() {
-        return 'Index for scrabble calculator';
+        return view('scrabble.index');
     }
 }
