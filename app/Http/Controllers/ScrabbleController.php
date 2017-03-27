@@ -12,6 +12,8 @@ class ScrabbleController extends Controller
     public function index(Request $request) {
         $lettersArray = $request->all();
 
+        dump($request->all());
+
         $letter1 = (isset($lettersArray["letter1"][0])) ?
             $lettersArray["letter1"][0] : "";
         $letter1Bonus = (isset($lettersArray["letter1"][1])) ?
@@ -129,6 +131,12 @@ class ScrabbleController extends Controller
         ];
 
         if($lettersArray) {
+
+            $this->validate($request, [
+                'letter1.0' => 'required',
+                'letter2.0' => 'required'
+            ]);
+
             $userWord = trim($letter1.$letter2.$letter3.
                 $letter4.$letter5.$letter6.$letter7.$letter8);
             $bingo = $request->has("bingo");
@@ -266,7 +274,6 @@ class ScrabbleController extends Controller
             'letter8' => $letter8,
             'letter8Bonus' => $letter8Bonus,
             'request' => $request,
-            'errors' => $errors,
             'userWord' => $userWord,
             'bingo' => $bingo,
             'score' => $score,

@@ -58,26 +58,33 @@
     </form>
 
     <div>
-        @if(!empty($request->all()))
-            @if($errors != "")
-                <div class="alert alert-danger">
-                    {{$errors}}
-                </div>
-            @else
-                @if(!empty($warnings))
-                    <div class="alert alert-warning">
-                        @foreach($warnings as $warning)
-                            <ul class="list-unstyled">
-                                <li>{{$warning}}</li>
-                            </ul>
-                        @endforeach
-                    </div>
-                @endif
 
-                <div class="alert alert-info">
-                    Your word, {{$userWord}}, is worth {{$score}} points.
+        @php
+            dump($errors);
+        @endphp
+
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul class="list-unstyled">
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @elseif (!empty($request->all()))
+            @if(!empty($warnings))
+                <div class="alert alert-warning">
+                    @foreach($warnings as $warning)
+                        <ul class="list-unstyled">
+                            <li>{{$warning}}</li>
+                        </ul>
+                    @endforeach
                 </div>
             @endif
+
+            <div class="alert alert-info">
+                Your word, {{$userWord}}, is worth {{$score}} points.
+            </div>
         @endif
     </div>
 
