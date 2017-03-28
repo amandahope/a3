@@ -25,13 +25,13 @@
                     </legend>
                     <select name="letter{{$i}}[]" class="form-control">
                         @foreach ($selectMenuArray as $option => $value)
-                            <option value="{{$value}}" @if (${"letter".$i} == $value) {{"SELECTED"}} @endif>{{$option}}</option>
+                            <option value="{{$value}}" @if (old("letter".$i.".0") == $value) {{"SELECTED"}} @elseif (${"letter".$i} == $value) {{"SELECTED"}} @endif>{{$option}}</option>
                         @endforeach
                     </select>
                     @foreach ($radioArray as $option => $value)
                         <div class="radio">
                             <label for="{{$value}}{{$i}}">
-                                <input type="radio" name="letter{{$i}}[]" value="{{$value}}" id="{{$value}}{{$i}}" @if (${"letter".$i."Bonus"} == $value) {{"CHECKED"}} @endif />{{$option}}
+                                <input type="radio" name="letter{{$i}}[]" value="{{$value}}" id="{{$value}}{{$i}}" @if (old("letter".$i.".1") == $value) {{"CHECKED"}} @elseif (${"letter".$i."Bonus"} == $value) {{"CHECKED"}} @endif />{{$option}}
                             </label>
                         </div>
                     @endforeach
@@ -58,10 +58,6 @@
     </form>
 
     <div>
-
-        @php
-            dump($errors);
-        @endphp
 
         @if(count($errors) > 0)
             <div class="alert alert-danger">

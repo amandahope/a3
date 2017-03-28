@@ -12,7 +12,7 @@ class ScrabbleController extends Controller
     public function index(Request $request) {
         $lettersArray = $request->all();
 
-        dump($request->all());
+       # dump($request->all());
 
         $letter1 = (isset($lettersArray["letter1"][0])) ?
             $lettersArray["letter1"][0] : "";

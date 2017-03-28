@@ -98,9 +98,14 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'letter1.0' => [
+            'required' => 'Scrabble words must be at least two letters long.
+                Please enter a value for Letter 1.',
         ],
+        'letter2.0' => [
+            'required' => 'Scrabble words must be at least two letters long.
+                Please enter a value for Letter 2.'
+        ]
     ],
 
     /*
