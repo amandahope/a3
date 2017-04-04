@@ -2,20 +2,6 @@
 
 window.onload = function () {
 
- /*   document.getElementsByTagName("input").setAttribute("disabled", "disabled");
-
-    var lettersParent = document.getElementById("lettersparent");
-
-    lettersParent.addEventListener(change, validateBonuses);
-
-    function validateBonuses (e) {
-        if (e.target != e.currentTarget) {
-            if (e.target != "") {
-
-            }
-        }
-    } */
-
     var resetButton = document.getElementById("reset");
 
     resetButton.addEventListener("click", resetForm);

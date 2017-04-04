@@ -59,7 +59,7 @@ class ScrabbleController extends Controller
         $score = "0";
         $warnings = [];
 
-
+        #generates select menu in view
         $selectMenuArray = [
             "&nbsp;" => "",
             "BLANK" => "_",
@@ -91,6 +91,7 @@ class ScrabbleController extends Controller
             "Z" => "Z"
         ];
 
+        #generates radio buttons in view
         $radioArray = [
             "No Bonus" => "none",
             "Letter x2" => "doubleletter",
@@ -99,6 +100,7 @@ class ScrabbleController extends Controller
             "Word x3" => "tripleword"
         ];
 
+        #point value of each letter
         $valuesArray = [
             "_" => 0,
             "A" => 1,

@@ -48,11 +48,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-xs-1">
+            <div class="form-group col-xs-2">
                 <button type="submit" value="submit" class="btn btn-primary">Submit</button>
-            </div>
-            <div class="form-group col-xs-1">
-                <button type="button" value="reset" class="btn btn-default" id="reset">Reset</button>
+                <button type="button" value="reset" class="btn btn-default" id="reset">Reset Form</button>
             </div>
         </div>
     </form>
