@@ -12,7 +12,7 @@
             <span class="help-block col-xs-12">Fields marked with * are required.</span>
         </div>
 
-        <div class="row">
+        <div class="row" id="lettersparent">
 
             @for ($i=1; $i<9; $i++)
                 <fieldset class="col-xs-1">
@@ -23,7 +23,7 @@
                             Letter {{$i}}:
                         @endif
                     </legend>
-                    <select name="letter{{$i}}[]" class="form-control">
+                    <select name="letter{{$i}}[]" id="letter{{$i}}" class="form-control">
                         @foreach ($selectMenuArray as $option => $value)
                             <option value="{{$value}}" @if (old("letter".$i.".0") == $value) {{"SELECTED"}} @elseif (${"letter".$i} == $value) {{"SELECTED"}} @endif>{{$option}}</option>
                         @endforeach
@@ -43,16 +43,16 @@
         <div class="row">
             <div class="checkbox form-group col-xs-12">
                 <label for="bingo">
-                    <input type="checkbox" name="bingo" value="bingo" id="bingo" />This word used all seven tiles.
+                    <input type="checkbox" name="bingo" value="bingo" id="bingo" @if (old("bingo") == $value) {{"CHECKED"}} @elseif ($bingo == $value) {{"CHECKED"}} @endif />This word used all seven tiles.
                 </label>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-xs-1">
-                <input type="submit" value="Submit" class="btn btn-primary" />
+                <button type="submit" value="submit" class="btn btn-primary">Submit</button>
             </div>
             <div class="form-group col-xs-1">
-                <button type="reset" value="Reset Form" class="btn btn-default">Reset Form</button>
+                <button type="button" value="reset" class="btn btn-default" id="reset">Reset</button>
             </div>
         </div>
     </form>
@@ -62,7 +62,7 @@
         @if(count($errors) > 0)
             <div class="alert alert-danger">
                 <ul class="list-unstyled">
-                    @foreach ($errors->all() as $error)
+                    @foreach (array_unique($errors->all()) as $error)
                         <li>{{$error}}</li>
                     @endforeach
                 </ul>

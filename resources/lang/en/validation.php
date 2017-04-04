@@ -97,6 +97,23 @@ return [
     |
     */
 
+    'bonus_spacing' => 'You have entered an incorrect combination of bonuses.
+    Please check your Scrabble board and try again. (Hint: you cannot have
+    adjacent bonuses.)',
+
+    'tripleletter_coexist' => 'You have entered an incorrect combination of
+    bonuses. Please check your Scrabble board and try again. (Hint: a triple
+    letter score will never be in the same row or column as a double letter
+    or triple word score.)',
+
+    'doubletripleword_spacing' => 'You have entered an incorrect combination of
+    bonuses. Please check your Scrabble board and try again. (Hint: double and
+    triple word scores are always at least two spaces away from any other bonus.)',
+
+    'tripleletter_spacing' => 'You have entered an incorrect combination of
+    bonuses. Please check your Scrabble board and try again. (Hint: triple
+    letter scores are always at least three spaces away from any other bonus.)',
+
     'custom' => [
         'letter1.0' => [
             'required' => 'Scrabble words must be at least two letters long.

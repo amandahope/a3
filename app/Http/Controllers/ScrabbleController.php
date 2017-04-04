@@ -10,9 +10,8 @@ class ScrabbleController extends Controller
     * GET /
     */
     public function index(Request $request) {
-        $lettersArray = $request->all();
 
-       # dump($request->all());
+        $lettersArray = $request->all();
 
         $letter1 = (isset($lettersArray["letter1"][0])) ?
             $lettersArray["letter1"][0] : "";
@@ -134,7 +133,23 @@ class ScrabbleController extends Controller
 
             $this->validate($request, [
                 'letter1.0' => 'required',
-                'letter2.0' => 'required'
+                'letter2.0' => 'required',
+                'letter1.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing',
+                'letter2.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing',
+                'letter3.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing',
+                'letter4.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing',
+                'letter5.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing',
+                'letter6.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing',
+                'letter7.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing',
+                'letter8.1' => 'bail|bonus_spacing|tripleletter_coexist|
+                    doubletripleword_spacing|tripleletter_spacing'
             ]);
 
             $userWord = trim($letter1.$letter2.$letter3.
@@ -223,7 +238,8 @@ class ScrabbleController extends Controller
                     if($wordLetter[0] == "") {
                         $warnings[] = "If you have not selected a letter, you cannot
                         activate a bonus for that letter. Bonus for ".$letterNumber."
-                        was not included in the calculation of your score.";
+                        was not included in the calculation of your score. (Hint:
+                        Trying to use a blank tile? Choose BLANK from the menu.)";
                     }
                 }
             }
